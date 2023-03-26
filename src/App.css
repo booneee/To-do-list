@@ -1,0 +1,92 @@
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
+}
+.App {
+  background-color: #333333;
+  width: 90%;
+  border-radius: 20px;
+  padding-bottom: 5%;
+}
+.App h1 {
+  text-align: center;
+  color: #fff;
+}
+.New-todo {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4d4d4d;
+  width: 85%;
+  height: 15vh;
+}
+.Section {
+  width: 100%;
+  padding: 10px;
+}
+.Section input {
+  height: 40px;
+  width: 250px;
+  border-radius: 17px;
+  font-size: 1.2rem;
+  border: 0;
+}
+.Information {
+  color: white;
+  height: 100%;
+}
+.Buttons button {
+  align-self: center;
+  float: right;
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  border: 0;
+}
+#Newtask {
+  background-color: orangered;
+  color: #fff;
+}
+.Todo {
+  margin: auto;
+}
+.Name {
+  font-size: 2rem;
+  margin: auto;
+}
+.Ongoing {
+  color: orangered;
+}
+.Description {
+  margin: auto;
+  font-size: 0.8rem;
+  color: white;
+}
+.Done {
+  color: grey;
+  text-decoration: line-through;
+}
+.Incomplete {
+  align-self: center;
+}
+.Complete {
+  margin-right: 10px;
+  color: green;
+  background-color: aquamarine;
+}
+.Delete {
+  color: red;
+  background-color: palevioletred;
+}
+.Tasks {
+  display: flex;
+  width: 85%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
