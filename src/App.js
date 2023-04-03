@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./components/Button";
 import Information from "./components/Information";
 import ListTasks from "./components/ListTasks";
@@ -10,6 +10,13 @@ function App() {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [taskList, setTasklist] = useState([]);
+  useEffect(() => {
+    let storedData = localStorage.getItem("storedTasks");
+    storedData = JSON.parse(storedData);
+    if (storedData) {
+      setTasklist(storedData);
+    }
+  }, []);
   const taskName = (value) => {
     setName(value.target.value);
   };
@@ -17,21 +24,29 @@ function App() {
     setDesc(value.target.value);
   };
   const doneTask = (id) => {
-    setTasklist(
-      taskList.map((taskList) =>
-        taskList.id === id ? { ...taskList, done: true } : taskList
-      )
+    let tempTaskList = taskList.map((taskList) =>
+      taskList.id === id ? { ...taskList, done: true } : taskList
     );
+    setTasklist(tempTaskList);
+    localStorage.setItem(
+      "storedTasks",
+      JSON.stringify(taskList.filter((taskList) => taskList.id !== id))
+    );
+    localStorage.setItem("storedTasks", JSON.stringify(tempTaskList));
   };
   const deleteTask = (id) => {
-    setTasklist(taskList.filter((taskList) => taskList.id !== id));
-    console.log("xoa ne", id);
+    let tempTaskList = taskList.filter((taskList) => taskList.id !== id);
+    setTasklist(tempTaskList);
+    console.log(id, taskId);
+    localStorage.setItem("storedTasks", JSON.stringify(tempTaskList));
   };
   function addTodo() {
-    setTasklist([
+    let tempTaskList = [
       ...taskList,
       { id: taskId++, name: name, desc: desc, done: false },
-    ]);
+    ];
+    setTasklist(tempTaskList);
+    localStorage.setItem("storedTasks", JSON.stringify(tempTaskList));
   }
   return (
     <div className="App">

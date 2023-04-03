@@ -4,11 +4,9 @@ import Tasks from "./Task";
 
 function ListTasks(props) {
   function doneTask(index) {
-    console.log("da nhan", index);
     props.doneTask(index);
   }
   function deleteTask(index) {
-    console.log("da nhan", index);
     props.deleteTask(index);
   }
   return (
