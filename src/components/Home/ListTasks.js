@@ -3,22 +3,17 @@ import Button from "./Button";
 import Tasks from "./Task";
 
 function ListTasks(props) {
-  function doneTask(index) {
-    props.doneTask(index);
-  }
-  function deleteTask(index) {
-    props.deleteTask(index);
-  }
+  const { taskList, doneTask, deleteTask } = props;
   return (
     <div>
-      {props.taskList.map((item) => (
-        <div className="Tasks">
+      {taskList.map((item) => (
+        <div className="Tasks" key={item.id}>
           <Tasks name={item.name} desc={item.desc} done={item.done} />
           <Button
             index={item.id}
             done={item.done}
-            doneTask={doneTask.bind(item.id)}
-            deleteTask={deleteTask.bind(item.id)}
+            doneTask={doneTask}
+            deleteTask={deleteTask}
           />
         </div>
       ))}

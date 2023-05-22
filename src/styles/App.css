@@ -37,6 +37,7 @@
 }
 .Information {
   color: white;
+  float: left;
   height: 100%;
 }
 .Buttons button {

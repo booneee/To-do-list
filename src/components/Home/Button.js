@@ -1,26 +1,19 @@
 import React from "react";
 
 function Button(props) {
-  function doneIndex() {
-    props.doneTask(props.index);
-    console.log("da gui", props.index);
-  }
-  function deleteIndex() {
-    props.deleteTask(props.index);
-    console.log("da gui", props.index);
-  }
+  const { newTask, done, doneTask, deleteTask, addTask } = props;
   return (
     <div className="Section Buttons">
-      {props.new ? (
-        <button type="button" onClick={props.onCLick} id="Newtask">
+      {newTask ? (
+        <button type="button" onClick={addTask} id="Newtask">
           Add to do
         </button>
-      ) : props.done ? (
+      ) : done ? (
         <div className="Completed">
           <button
             type="button"
             className="Delete"
-            onClick={deleteIndex.bind(props.index)}
+            onClick={() => deleteTask(props)}
           >
             Delete
           </button>
@@ -30,14 +23,14 @@ function Button(props) {
           <button
             type="button"
             className="Delete"
-            onClick={deleteIndex.bind(props.index)}
+            onClick={() => deleteTask(props)}
           >
             Delete
           </button>
           <button
             type="button"
             className="Complete"
-            onClick={doneIndex.bind(props.index)}
+            onClick={() => doneTask(props)}
           >
             Complete
           </button>
