@@ -1,7 +1,10 @@
 import React from "react";
+import { useMutation } from "react-query";
 
 function Button(props) {
   const { newTask, done, doneTask, deleteTask, addTask } = props;
+  const doneMutate = useMutation(doneTask);
+  const deleteMutate = useMutation(deleteTask);
   return (
     <div className="Section Buttons">
       {newTask ? (
@@ -13,7 +16,7 @@ function Button(props) {
           <button
             type="button"
             className="Delete"
-            onClick={() => deleteTask(props)}
+            onClick={() => deleteMutate.mutate(props)}
           >
             Delete
           </button>
@@ -23,14 +26,14 @@ function Button(props) {
           <button
             type="button"
             className="Delete"
-            onClick={() => deleteTask(props)}
+            onClick={() => deleteMutate.mutate(props)}
           >
             Delete
           </button>
           <button
             type="button"
             className="Complete"
-            onClick={() => doneTask(props)}
+            onClick={() => doneMutate.mutate(props)}
           >
             Complete
           </button>
