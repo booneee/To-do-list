@@ -6,16 +6,16 @@ function Button(props) {
   const doneMutate = useMutation(doneTask);
   const deleteMutate = useMutation(deleteTask);
   return (
-    <div className="Section Buttons">
+    <div className="col-sm-4">
       {newTask ? (
-        <button type="button" onClick={addTask} id="Newtask">
+        <button type="button" className="btn btn-primary" onClick={addTask}>
           Add to do
         </button>
       ) : done ? (
         <div className="Completed">
           <button
             type="button"
-            className="Delete"
+            className="btn btn-danger"
             onClick={() => deleteMutate.mutate(props)}
           >
             Delete
@@ -25,17 +25,17 @@ function Button(props) {
         <div className="Incomplete">
           <button
             type="button"
-            className="Delete"
-            onClick={() => deleteMutate.mutate(props)}
-          >
-            Delete
-          </button>
-          <button
-            type="button"
-            className="Complete"
+            className="btn btn-success"
             onClick={() => doneMutate.mutate(props)}
           >
             Complete
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => deleteMutate.mutate(props)}
+          >
+            Delete
           </button>
         </div>
       )}

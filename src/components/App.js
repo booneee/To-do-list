@@ -1,10 +1,6 @@
 import Homepage from "../pages/Homepage";
-import {
-  QueryCache,
-  QueryClientProvider,
-  ReactQueryCacheProvider,
-} from "react-query";
-import { queryCache, queryClient } from "../query";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "../query";
 
 function App() {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 
 function Information(props) {
   return (
-    <div className="Section Information">
+    <div className="col-sm-4">
       <p>{props.name}</p>
       <input
         type="text"

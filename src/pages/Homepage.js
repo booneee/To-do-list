@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/App.css";
+import "bootstrap/dist/css/bootstrap.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Information, ListTasks } from "../components/Home/index";
 import { addNewTodo, completeTodo, deleteTodo } from "../actions";
 import { useMutation, useQuery } from "react-query";
-import { queryCache, queryClient } from "../query";
+import { queryClient } from "../query";
 
 let taskId = 0;
 var storageTask = JSON.parse(localStorage.getItem("storedTasks"));
